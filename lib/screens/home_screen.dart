@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:islami_app/screens/hadeth_screen.dart';
-import 'package:islami_app/screens/quran_screen.dart';
+import 'package:islami_app/screens/hadeth/hadeth_screen.dart';
+import 'package:islami_app/screens/quran/quran_screen.dart';
 import 'package:islami_app/screens/radio_screen.dart';
 import 'package:islami_app/screens/sebha_screen.dart';
 
