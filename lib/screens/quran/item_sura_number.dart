@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/screens/Quran/sura_details_screen.dart';
 
-class ItemSuraName extends StatelessWidget {
-  String name;
+class ItemSuraNumber extends StatelessWidget {
   int index;
-  ItemSuraName({required this.name, required this.index});
+  String name;
+  ItemSuraNumber({required this.name, required this.index});
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -12,7 +12,7 @@ class ItemSuraName extends StatelessWidget {
         Navigator.of(context).pushNamed(SuraDetailsScreen.routeName,
             arguments: SuraDetailsArgs(name: name, index: index));
       },
-      child: Text(name,
+      child: Text("${index + 1}",
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodySmall),
     );

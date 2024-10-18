@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/app_colors.dart';
-import 'package:islami_app/screens/quran/item_sura_details_data.dart';
+import 'package:islami_app/screens/Quran/item_sura_details_data.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "SuraDetailsScreen";
@@ -23,8 +23,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           width: double.infinity, height: double.infinity, fit: BoxFit.fill),
       Scaffold(
           appBar: AppBar(
-              title:
-                  Text(args.name, style: Theme.of(context).textTheme.bodyLarge),
+              title: Text("Islami"),
               titleTextStyle: Theme.of(context).textTheme.bodyLarge),
           body: verses.isEmpty
               ? Center(
@@ -38,20 +37,41 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(24),
                   ),
-                  child: ListView.separated(
-                    separatorBuilder: (context, index) {
-                      return Divider(
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("سورة ${args.name}",
+                              style: Theme.of(context).textTheme.bodyLarge),
+                          SizedBox(width: 15),
+                          Icon(
+                            Icons.play_circle_fill_rounded,
+                            size: 30,
+                          )
+                        ],
+                      ),
+                      Divider(
                         color: AppColors.primaryLightColor,
                         thickness: 2,
-                      );
-                    },
-                    itemBuilder: (context, index) {
-                      return ItemSuraDetailsData(
-                          content: verses[index], index: index);
-                    },
-                    itemCount: verses.length,
-                  ),
-                ))
+                      ),
+                      Expanded(
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return Divider(
+                              color: AppColors.primaryLightColor,
+                              thickness: 2,
+                            );
+                          },
+                          itemBuilder: (context, index) {
+                            return ItemSuraDetailsData(
+                                content: verses[index], index: index);
+                          },
+                          itemCount: verses.length,
+                        ),
+                      ),
+                    ],
+                  )))
     ]);
   }
 

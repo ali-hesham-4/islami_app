@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_colors.dart';
-import 'package:islami_app/screens/quran/item_sura_name.dart';
+import 'package:islami_app/screens/Quran/item_sura_name.dart';
+import 'package:islami_app/screens/Quran/item_sura_number.dart';
 
 class QuranScreen extends StatelessWidget {
   QuranScreen({super.key});
   List<String> names = [
-    "الفاتحه",
+    "الفاتحة",
     "البقرة",
     "آل عمران",
     "النساء",
@@ -130,22 +131,53 @@ class QuranScreen extends StatelessWidget {
             color: AppColors.primaryLightColor,
             thickness: 3,
           ),
-          Text("Sura Name", style: Theme.of(context).textTheme.bodyMedium),
+          Row(
+            children: [
+              Expanded(
+                  child: Text("Sura Name",
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      textAlign: TextAlign.center)),
+              SizedBox(
+                height: 35,
+                child: VerticalDivider(
+                  color: AppColors.primaryLightColor,
+                  thickness: 3,
+                ),
+              ),
+              Expanded(
+                  child: Text(
+                "Sura Number",
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              )),
+            ],
+          ),
           Divider(
             color: AppColors.primaryLightColor,
             thickness: 3,
           ),
           Expanded(
             flex: 2,
-            child: ListView.separated(
-              separatorBuilder: (context, index) {
-                return Divider(
-                  color: AppColors.primaryLightColor,
-                  thickness: 2,
-                );
-              },
+            child: ListView.builder(
               itemBuilder: (context, index) {
-                return ItemSuraName(name: names[index], index: index);
+                return Row(
+                  children: [
+                    Expanded(
+                        child: ItemSuraName(name: names[index], index: index)),
+                    SizedBox(
+                      height: 35,
+                      child: VerticalDivider(
+                        color: AppColors.primaryLightColor,
+                        thickness: 3,
+                      ),
+                    ),
+                    Expanded(
+                        child: ItemSuraNumber(
+                      name: names[index],
+                      index: index,
+                    )),
+                  ],
+                );
               },
               itemCount: names.length,
             ),

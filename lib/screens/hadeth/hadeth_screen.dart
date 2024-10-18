@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/app_colors.dart';
-import 'package:islami_app/screens/hadeth/item_hadeth_name.dart';
-import 'package:islami_app/screens/quran/item_sura_name.dart';
+import 'package:islami_app/Screens/Quran/item_sura_name.dart';
+import 'package:islami_app/Screens/Hadeth/item_hadeth_name.dart';
 
 class HadethScreen extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/screens/hadeth/hadeth_details_screen.dart';
-import 'package:islami_app/screens/hadeth/hadeth_screen.dart';
+import 'package:islami_app/screens/Hadeth/hadeth_details_screen.dart';
+import 'package:islami_app/screens/Hadeth/hadeth_screen.dart';
 
 class ItemHadethName extends StatelessWidget {
   Hadeth hadeth;
