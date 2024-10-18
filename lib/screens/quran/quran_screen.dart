@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_colors.dart';
-import 'package:islami_app/screens/quran/item_sura_name.dart';
-import 'package:islami_app/screens/quran/item_sura_number.dart';
+import 'package:islami_app/screens/Quran/item_sura_name.dart';
+import 'package:islami_app/screens/Quran/item_sura_number.dart';
 
 class QuranScreen extends StatelessWidget {
   QuranScreen({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/app_colors.dart';
-import 'package:islami_app/screens/hadeth/hadeth_screen.dart';
-import 'package:islami_app/screens/hadeth/item_hadeth_details_data.dart';
-import 'package:islami_app/screens/quran/item_sura_details_data.dart';
+import 'package:islami_app/screens/Hadeth/hadeth_screen.dart';
+import 'package:islami_app/screens/Hadeth/item_hadeth_details_data.dart';
+import 'package:islami_app/screens/Quran/item_sura_details_data.dart';
 
 class HadethDetailsScreen extends StatefulWidget {
   static const String routeName = "HadethDetailsScreen";
