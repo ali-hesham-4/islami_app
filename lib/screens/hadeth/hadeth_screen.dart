@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/app_colors.dart';
-import 'package:islami_app/Screens/Quran/item_sura_name.dart';
-import 'package:islami_app/Screens/Hadeth/item_hadeth_name.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/screens/Hadeth/item_hadeth_name.dart';
 
 class HadethScreen extends StatefulWidget {
+  const HadethScreen({super.key});
+
   @override
   State<HadethScreen> createState() => _HadethScreenState();
 }
@@ -20,32 +22,33 @@ class _HadethScreenState extends State<HadethScreen> {
     return Column(
       children: [
         Expanded(child: Image.asset("assets/images/hadith_logo.png")),
-        Divider(
+        const Divider(
           color: AppColors.primaryLightColor,
           thickness: 3,
         ),
-        Text("Hadeth Name", style: Theme.of(context).textTheme.bodyMedium),
-        Divider(
+        Text(AppLocalizations.of(context)!.hadethNumber,
+            style: Theme.of(context).textTheme.bodyMedium),
+        const Divider(
           color: AppColors.primaryLightColor,
           thickness: 3,
         ),
         Expanded(
           flex: 2,
           child: ahadethList.isEmpty
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(
                     color: AppColors.primaryLightColor,
                   ),
                 )
               : ListView.separated(
                   separatorBuilder: (context, index) {
-                    return Divider(
+                    return const Divider(
                       color: AppColors.primaryLightColor,
                       thickness: 2,
                     );
                   },
                   itemBuilder: (context, index) {
-                    return ItemHadethName(hadeth: ahadethList[index]);
+                    return ItemHadethNumber(hadeth: ahadethList[index]);
                   },
                   itemCount: ahadethList.length,
                 ),

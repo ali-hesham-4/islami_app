@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_colors.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/screens/Quran/item_sura_name.dart';
 import 'package:islami_app/screens/Quran/item_sura_number.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class QuranScreen extends StatelessWidget {
   QuranScreen({super.key});
@@ -123,37 +126,44 @@ class QuranScreen extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Scaffold(
       body: Column(
         children: [
           Expanded(child: Image.asset("assets/images/quran_logo.png")),
           Divider(
-            color: AppColors.primaryLightColor,
+            color: provider.appTheme == ThemeMode.dark
+                ? AppColors.yellowColor
+                : AppColors.primaryLightColor,
             thickness: 3,
           ),
           Row(
             children: [
               Expanded(
-                  child: Text("Sura Name",
+                  child: Text(AppLocalizations.of(context)!.suraName,
                       style: Theme.of(context).textTheme.bodyMedium,
                       textAlign: TextAlign.center)),
               SizedBox(
                 height: 35,
                 child: VerticalDivider(
-                  color: AppColors.primaryLightColor,
+                  color: provider.appTheme == ThemeMode.dark
+                      ? AppColors.yellowColor
+                      : AppColors.primaryLightColor,
                   thickness: 3,
                 ),
               ),
               Expanded(
                   child: Text(
-                "Sura Number",
+                AppLocalizations.of(context)!.suraNumber,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               )),
             ],
           ),
           Divider(
-            color: AppColors.primaryLightColor,
+            color: provider.appTheme == ThemeMode.dark
+                ? AppColors.yellowColor
+                : AppColors.primaryLightColor,
             thickness: 3,
           ),
           Expanded(
@@ -167,7 +177,9 @@ class QuranScreen extends StatelessWidget {
                     SizedBox(
                       height: 35,
                       child: VerticalDivider(
-                        color: AppColors.primaryLightColor,
+                        color: provider.appTheme == ThemeMode.dark
+                            ? AppColors.yellowColor
+                            : AppColors.primaryLightColor,
                         thickness: 3,
                       ),
                     ),

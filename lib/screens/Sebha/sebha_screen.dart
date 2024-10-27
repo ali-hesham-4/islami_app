@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaScreen extends StatefulWidget {
   const SebhaScreen({super.key});
@@ -21,6 +24,8 @@ class _SebhaScreenState extends State<SebhaScreen> {
   double angle = 0;
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     Size size = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     return Center(
@@ -29,35 +34,42 @@ class _SebhaScreenState extends State<SebhaScreen> {
           Stack(
             alignment: Alignment.topCenter,
             children: [
-              Image.asset("assets/images/head of seb7a.png"),
+              provider.appTheme == ThemeMode.dark
+                  ? Image.asset("assets/images/head of dark seb7a.png")
+                  : Image.asset("assets/images/head of seb7a.png"),
               Padding(
-                  padding: EdgeInsets.only(top: size.height * 0.04),
+                  padding: provider.appTheme == ThemeMode.dark
+                      ? EdgeInsets.only(top: size.height * 0.08)
+                      : EdgeInsets.only(top: size.height * 0.04),
                   child: InkWell(
                     onTap: () {
                       onZekrClicked();
                     },
                     child: Transform.rotate(
                         angle: angle,
-                        child: Image.asset("assets/images/body of seb7a.png")),
+                        child: provider.appTheme == ThemeMode.dark
+                            ? Image.asset(
+                                "assets/images/body of dark seb7a.png")
+                            : Image.asset("assets/images/body of seb7a.png")),
                   )),
             ],
           ),
-          SizedBox(height: size.height * 0.01),
+          SizedBox(height: size.height * 0.05),
           Text(
-            "Tasebeh Count",
+            AppLocalizations.of(context)!.tasbehCount,
             style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: size.height * 0.05),
           Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: theme.primaryColor.withOpacity(0.7),
               ),
               child: Text(
-                "${counter}",
-                style: TextStyle(fontSize: 25),
+                "$counter",
+                style: const TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               )),
           SizedBox(height: size.height * 0.05),
@@ -66,14 +78,20 @@ class _SebhaScreenState extends State<SebhaScreen> {
               onZekrClicked();
             },
             child: Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: theme.primaryColor,
+                  color: provider.appTheme == ThemeMode.dark
+                      ? AppColors.yellowColor
+                      : AppColors.primaryLightColor,
                 ),
                 child: Text(
-                  "${Azkar[index]}",
-                  style: TextStyle(color: AppColors.whiteColor, fontSize: 25),
+                  Azkar[index],
+                  style: TextStyle(
+                      color: provider.appTheme == ThemeMode.dark
+                          ? AppColors.blackColor
+                          : AppColors.whiteColor,
+                      fontSize: 25),
                   textAlign: TextAlign.center,
                 )),
           )
