@@ -1,0 +1,20 @@
+{
+  "appName": "Islami",
+  "quran": "Quran",
+  "hadeth": "Hadeth",
+  "sebha": "Sebha",
+  "radio": "Radio",
+  "suraName": "Sura Name",
+  "suraNumber": "Sura Number",
+  "hadethNumber": "Hadeth Number",
+  "tasbehCount": "Tasbeh Count",
+  "holyQuranBroadCast": "Holy Quran BroadCast",
+  "settings": "Settings",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
+  
+}
